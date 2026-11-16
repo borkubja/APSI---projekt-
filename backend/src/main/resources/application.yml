@@ -1,0 +1,38 @@
+server:
+  port: ${BACKEND_PORT:8080}
+
+spring:
+  application:
+    name: apsi-repo
+  config:
+    # Czyta plik .env z katalogu głównego repozytorium (backend uruchamiamy z katalogu backend/); brak pliku nie jest błędem.
+    import: optional:file:../.env[.properties]
+  datasource:
+    # Wartości domyślne pasują do docker-compose.yml; nadpisz zmiennymi środowiskowymi (patrz .env.example).
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:apsi}
+    username: ${POSTGRES_USER:apsi}
+    password: ${POSTGRES_PASSWORD:apsi}
+  jpa:
+    hibernate:
+      ddl-auto: none   # schemat zmieniamy wyłącznie migracjami Flyway
+    open-in-view: false
+  flyway:
+    enabled: true
+  servlet:
+    multipart:
+      max-file-size: 25MB
+      max-request-size: 30MB
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:${KEYCLOAK_PORT:8180}/realms/apsi}
+
+
+# Katalog na pliki wersji dokumentów (poza bazą).
+app:
+  storage-dir: ${STORAGE_DIR:storage}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

@@ -1,0 +1,4 @@
+# Jednolite końce linii (LF) niezależnie od systemu - bez ostrzeżeń "LF will be replaced by CRLF" na Windows.
+* text=auto eol=lf
+*.png binary
+*.jpg binary

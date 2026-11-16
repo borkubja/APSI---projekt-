@@ -1,0 +1,19 @@
+# Wymagania systemowe (to nie jest plik pip - biblioteki Javy są w backend/pom.xml, a JS w frontend/package.json).
+# Pełna instrukcja i sposób sprawdzenia wersji: README.md, rozdział "Wymagania".
+
+# Narzędzia do zainstalowania
+Docker z Docker Compose v2        # także do testów backendu (Testcontainers)
+JDK 21 (np. Temurin)
+Maven >= 3.9
+Node.js 20, 22 lub nowszy LTS     # npm w komplecie
+Git
+
+# Porty, które muszą być wolne (zmienisz je w pliku .env, wzór: .env.example)
+5173   # frontend (Vite)        FRONTEND_PORT
+8080   # backend (Spring Boot)  BACKEND_PORT
+8180   # Keycloak               KEYCLOAK_PORT
+5432   # PostgreSQL             POSTGRES_PORT
+
+# Biblioteki instalują się same:
+#   backend:  mvn spring-boot:run   (czyta backend/pom.xml)
+#   frontend: npm install           (czyta frontend/package.json)

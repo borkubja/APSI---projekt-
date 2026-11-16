@@ -1,0 +1,99 @@
+{
+  "realm": "apsi",
+  "enabled": true,
+  "displayName": "APSI Repozytorium dokumentów",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "internationalizationEnabled": true,
+  "supportedLocales": [
+    "pl",
+    "en"
+  ],
+  "defaultLocale": "pl",
+  "clients": [
+    {
+      "clientId": "apsi-frontend",
+      "name": "APSI frontend (SPA)",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "http://localhost:*"
+      ],
+      "webOrigins": [
+        "+"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:*"
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "0f1c2a3b-0000-4000-8000-000000000001",
+      "username": "jan.kowalski",
+      "email": "jan.kowalski@apsi.local",
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "haslo",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "id": "0f1c2a3b-0000-4000-8000-000000000002",
+      "username": "anna.nowak",
+      "email": "anna.nowak@apsi.local",
+      "firstName": "Anna",
+      "lastName": "Nowak",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "haslo",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "id": "0f1c2a3b-0000-4000-8000-000000000003",
+      "username": "piotr.wisniewski",
+      "email": "piotr.wisniewski@apsi.local",
+      "firstName": "Piotr",
+      "lastName": "Wiśniewski",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "haslo",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "id": "0f1c2a3b-0000-4000-8000-000000000004",
+      "username": "ewa.zielinska",
+      "email": "ewa.zielinska@apsi.local",
+      "firstName": "Ewa",
+      "lastName": "Zielińska",
+      "enabled": true,
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "haslo",
+          "temporary": false
+        }
+      ]
+    }
+  ]
+}

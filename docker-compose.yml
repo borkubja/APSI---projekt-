@@ -1,0 +1,32 @@
+# Środowisko deweloperskie: baza i serwer logowania. Backend i frontend uruchamiamy lokalnie (README.md).
+# Porty i dane logowania pochodzą z pliku .env (wzór: .env.example); bez niego działają wartości domyślne.
+# Hasła poniżej to wyłącznie dane deweloperskie.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-apsi}
+      POSTGRES_USER: ${POSTGRES_USER:-apsi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-apsi}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      retries: 10
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    command: ["start-dev", "--import-realm", "--http-port=${KEYCLOAK_PORT:-8180}"]
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: ${KEYCLOAK_ADMIN:-admin}
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
+    ports:
+      - "${KEYCLOAK_PORT:-8180}:${KEYCLOAK_PORT:-8180}"
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import:ro
+
+volumes:
+  pgdata:
