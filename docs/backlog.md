@@ -18,7 +18,7 @@ Zasady (uzupełniają [README.md](../README.md#zasady-pracy)):
 | # | Login GitHub | Rola w Scrum | Uwagi |
 | --- | --- | --- | --- |
 | 1 | borkubja | Developer + Scrum Master | właściciel repozytorium `borkubja/APSI---projekt-` |
-| 2 | k-miel | Developer + Product Owner | współpracownik; konto, na którym założono tablicę Projects |
+| 2 | k-miel | Developer + Product Owner | współpracownik |
 | 3 | mfridayy | Developer | współpracownik |
 | 4 | szymon-lukawski | Developer | współpracownik |
 | 5 | magnuwam-ui | Developer | współpracownik |
